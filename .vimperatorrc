@@ -1,0 +1,16 @@
+set guioptions=rbms
+set visualbell
+set newtab=all
+set defsearch=duckduckgo
+set maxitems=10
+set cpt=l
+set nostrictfocus
+set mapleader=","
+set autocomplete=".*"
+set hintmatching=wordstartswith
+
+set editor="/Users/rue/bin/gvim -f"
+
+noremap q Q
+
+
