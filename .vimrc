@@ -66,7 +66,7 @@ Bundle 'rwfitzge/vim-bclose.git'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mattn/webapi-vim.git'
 Bundle 'mattn/gist-vim.git'
-
+Bundle 'kchmck/vim-coffee-script.git'
 " Vimscript bundles
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -190,4 +190,4 @@ let g:miniBufExplMapCTabSwitchBufs = 1      " <c-tab>, <c-s-tab> for buffers
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 set background=dark
-colorscheme solarized
+colorscheme zenburn
