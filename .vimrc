@@ -67,6 +67,7 @@ Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mattn/webapi-vim.git'
 Bundle 'mattn/gist-vim.git'
 Bundle 'majutsushi/tagbar.git'
+Bundle 'xolox/vim-easytags.git'
 
 " Vimscript bundles
 Bundle 'L9'
