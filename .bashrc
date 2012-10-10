@@ -11,6 +11,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 # Homebrew!
 export PATH=/Users/rue/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
 
+# rbenv!
+export PATH=/Users/rue/.rbenv/versions/1.9.3-p194/bin:$PATH
+
 # Node
 export NODE_HOME=/Users/rue/node_modules
 export PATH=$NODE_HOME/.bin:$PATH
@@ -33,7 +36,7 @@ PR_BROWN="\[\033[33m\]"
 PR_LTGREY="\[\033[37m\]"
 PR_CLEAR="\[\033[0m\]"
 
-PS1="$PR_BROWN\t $PR_LTGREY@\h \w:\$(__git_ps1 "%s") \$(rvm-prompt) $PR_CLEAR> "
+PS1="$PR_BROWN\t $PR_LTGREY@\h \w:\$(__git_ps1 "%s") $PR_CLEAR> "
 PS2="$PR_LTGREY ... $PR_CLEAR> "
 
 # Stupid ri
@@ -89,6 +92,5 @@ if [ -f `brew --prefix`/etc/autojump ]; then
     . `brew --prefix`/etc/autojump
 fi
 
-[[ -s "/Users/rue/.rvm/scripts/rvm" ]] && source "/Users/rue/.rvm/scripts/rvm"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
