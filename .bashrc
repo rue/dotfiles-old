@@ -98,3 +98,6 @@ alias mannerheim="ssh ssh.reaktor.fi"
 if [ -f `brew --prefix`/etc/autojump ]; then
     . `brew --prefix`/etc/autojump
 fi
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+

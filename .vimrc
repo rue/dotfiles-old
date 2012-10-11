@@ -67,6 +67,9 @@ Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mattn/webapi-vim.git'
 Bundle 'mattn/gist-vim.git'
 Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'majutsushi/tagbar.git'
+Bundle 'xolox/vim-easytags.git'
+
 " Vimscript bundles
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -134,15 +137,15 @@ let mapleader=","
 nmap <leader>t :CommandT<CR>
 nmap <leader>T :CommandTFlush<CR>
 
+" Tagbar
+nmap <leader>b :TagbarOpenAutoClose<CR>
+
 " Need moar filez
 let g:CommandTMaxFiles=50000
 
 " Double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 "cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-"map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-"map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " ,, moves between previous buffers
 "nnoremap <leader><leader> <c-^>
