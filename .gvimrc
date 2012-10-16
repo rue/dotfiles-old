@@ -1,9 +1,6 @@
 " Clear autocommands
 autocmd!
 
-" GUI-specific Vim options
-set transparency=3
-
 " Standard
 source ~/.vimrc
 
@@ -17,6 +14,7 @@ set guioptions-=R
 
 " Visual
 set guifont="Meslo LG S DZ":h12
+
 "colorscheme rubylang
 set background=dark
 colorscheme solarized

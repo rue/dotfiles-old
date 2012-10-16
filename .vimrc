@@ -79,7 +79,10 @@ Bundle 'FuzzyFinder'
 filetype plugin indent on     " Enable filetype-specific indenting and plugins
 
 " Text editing could use autoformatting
-au FileType *.md set formatoptions+=a
+au FileType,Syntax,BufRead,BufNewFile,BufEnter *.md setlocal formatoptions+=a
+au FileType,Syntax,BufRead,BufNewFile,BufEnter *.md setlocal noautoindent
+au FileType,Syntax,BufRead,BufNewFile,BufEnter *.md setlocal nosmartindent
+au FileType,Syntax,BufRead,BufNewFile,BufEnter *.md setlocal spell spelllang=en_us
 
 " Highlight the desirable EOL
 " guifg=#dcdccc guibg=#213449
