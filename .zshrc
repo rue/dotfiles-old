@@ -38,6 +38,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/Users/rue/.rbenv/shims:/Users/rue/node_modules/.bin:/Users/rue/.rbenv/versions/1.9.3-p194/bin:/Users/rue/bin:/usr/local/bin:/usr/local/share/npm/bin:/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home//bin:/Users/rue/.rbenv/shims:/Users/rue/node_modules/.bin:/Users/rue/.rbenv/versions/1.9.3-p194/bin:/Users/rue/bin:/usr/local/bin:/usr/local/share/npm/bin:/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home//bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 
+# Me
+export DEFAULT_USER="rue"
+
 # VIm stuffs.
 export EDITOR="vim"
 bindkey -v 
@@ -62,6 +65,9 @@ alias irb=pry
 # Yay gems, thanks jc00ke
 alias gem+="gem install"
 alias gem-="gem uninstall"
+
+alias brew+="brew install"
+alias brew-="brew uninstall"
 
 # Git stuff
 alias ga="git add"
@@ -90,3 +96,5 @@ lnsft () {
 
 alias ..="cd .."
 alias ...="cd ../.."
+
+alias resource="source ~/.zshrc"
