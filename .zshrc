@@ -12,7 +12,7 @@ ZSH_THEME="agnoster"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -43,12 +43,12 @@ export DEFAULT_USER="rue"
 
 # VIm stuffs.
 export EDITOR="vim"
-bindkey -v 
+bindkey -v
 
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward  
+bindkey '^N' history-search-forward
 
 # cd without cd
 setopt AUTO_CD
