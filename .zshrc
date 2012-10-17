@@ -84,17 +84,18 @@ alias gp="git push origin HEAD"
 alias gr="git rm"
 alias gs="git status"
 alias gu="git pull --rebase"
+alias gsh="git show"
 
 # Regular aliases
 alias ll="ls -lhaF"
 alias la="ls -a"
 
-# I can never remember which way these are
-lnsft () {
-  command ln -s "$1" "$2"
-}
-
 alias ..="cd .."
 alias ...="cd ../.."
 
 alias resource="source ~/.zshrc"
+
+# I can never remember which way these are
+lnsft () {
+  command ln -s "$1" "$2"
+}
