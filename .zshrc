@@ -98,7 +98,12 @@ alias ...="cd ../.."
 
 alias resource="source ~/.zshrc"
 
+# Netstat is completely useless on OSX
+alias netlisteners="lsof -i -P | ag LISTEN"
+
 # I can never remember which way these are
 lnsft () {
   command ln -s "$1" "$2"
 }
+
+eval "$(rbenv init -)"
