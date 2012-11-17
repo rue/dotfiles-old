@@ -3,5 +3,7 @@
 .DS_Store
 old/
 .swp
+.tmp
 .vim/bundle/
 .DS_Store
+.swp
