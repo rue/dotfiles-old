@@ -6,8 +6,12 @@ set number
 set ruler
 set textwidth=120
 
+set timeoutlen=200
+
 " Ack!
 set grepprg=ack
+
+set wildignore+=*node_modules/*
 
 " Swap files in one place
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -15,15 +19,16 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Simpler escaping now with 30% more saving!
 imap hh <esc>:w<CR>
-vmap hh <esc>:w<CR> Let's try this…
+vmap hh <esc>:w<CR>
+"Let's try this…
 imap <leader><leader> <ESC>:w<CR>
 vmap <leader><leader> <ESC>:w<CR>
 nmap <leader><leader> :w<CR>
 
 " Let’s make backward search easier
 " First, hide away the eq.
-vnoremap ≠ =
-nnoremap ≠ =
+vnoremap <leader>= =
+nnoremap <leader>= =
 vmap = ?
 nmap = ?
 
@@ -40,42 +45,50 @@ vmap  U :s/^#//<CR>
 map .c :s/^/\/\//<CR>
 map .C :s/^\/\///<CR>
 
+" Strip whitespace
+"nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\v\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:w<CR>
+
+
 " Syntax
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 set background=dark
 colorscheme solarized
 
-"filetype on           " Enable filetype detection
-" Plugin and indent further down.
-filetype off                  " Disable, req'd by Vundle
+" Vundle requires plugin and indent enabled after it.
+filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " Github bundles
 Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-rails.git'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mattn/webapi-vim.git'
 Bundle 'mattn/gist-vim.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'majutsushi/tagbar.git'
-Bundle 'xolox/vim-easytags.git'
+Bundle 'mileszs/ack.vim.git'
+Bundle 'hail2u/vim-css3-syntax.git'
+Bundle 'groenewege/vim-less.git'
+Bundle 'tpope/vim-surround.git'
+" Clojure
+Bundle 'kien/rainbow_parentheses.vim.git'
+Bundle 'guns/vim-clojure-static.git'
+Bundle 'tpope/vim-classpath.git'
+Bundle 'tpope/vim-fireplace.git'
 
 " Vimscript bundles
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-"Bundle 'matchit'
+Bundle 'matchit'
 
 
-" Cargo-culting: does this need to be down here?
+" Vundle needs this to be after it.
 filetype plugin indent on     " Enable filetype-specific indenting and plugins
 
 " Text editing could use autoformatting
@@ -95,8 +108,21 @@ au Syntax,BufRead,BufNewFile,BufEnter * 2match rue_margin80 /.\%>80v/
 "au Syntax,BufRead,BufNewFile,BufEnter * highlight rue_whitespaceError guibg=red guifg=white
 au Syntax,BufRead,BufNewFile,BufEnter * 3match Error /\s\+$\| \+\ze\t/  " Whitespace errors
 
+" Rainbow
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
 " Remove trailing whitespace from selection
-map .W :%s/ *$//<CR>:w<CR>
+"nmap <leader>c :%s/ *$//<CR>:w<CR>
+
+" Use comma as <Leader> key instead of backslash
+let mapleader=","
 
 " Search
 set hlsearch
@@ -104,7 +130,7 @@ set incsearch
 set ignorecase
 set smartcase
 
-map § :set hls!<CR>
+map ` :set hls!<CR>
 "noremap <esc> :nohls<cr>
 
 " Indenting
@@ -128,22 +154,28 @@ noremap s l
 noremap l s
 
 " Window
-" < ^ V >
 nmap <c-w>h <c-w>h
 nmap <c-w>t <c-w>W
 nmap <c-w>n <c-w>w
 nmap <c-w>s <c-w>l
 
-" Use comma as <Leader> key instead of backslash
-let mapleader=","
-nmap <leader>t :CommandT<CR>
-nmap <leader>T :CommandTFlush<CR>
+" Buffer navigation and stuff
+" < >
+"nmap <leader>c bp|bw #
+nmap <leader>p <c-w>p
+nmap <leader>n <c-w>n
+
+" Command-T
+nmap <leader>t :CtrlPMixed<CR>
+nmap <leader>T :CtrlP<CR>
+
+let g:ctrlp_custom_ignore = '\v\.(git|hg|svn|js|html)$'
+
+" Ack
+nmap <leader>a :Ack<CR>
 
 " Tagbar
 nmap <leader>b :TagbarOpenAutoClose<CR>
-
-" Need moar filez
-let g:CommandTMaxFiles=50000
 
 " Double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
