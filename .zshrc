@@ -36,13 +36,17 @@ plugins=(git vi-mode rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+#
 export PATH=/Users/rue/.rbenv/shims:/Users/rue/node_modules/.bin:/usr/local/Cellar/rbenv/0.3.0/versions/1.9.3-p194/bin:/Users/rue/bin:/usr/local/bin:/usr/local/share/npm/bin:/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home//bin:/Users/rue/.rbenv/shims:/Users/rue/node_modules/.bin:/Users/rue/.rbenv/versions/1.9.3-p194/bin:/Users/rue/bin:/usr/local/bin:/usr/local/share/npm/bin:/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home//bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# JVM
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home
 
 # Me
 export DEFAULT_USER="rue"
+
+export LANG=en_us.UTF-8
+export LC_ALL=en_us.UTF-8
 
 # VIm stuffs.
 export EDITOR="vim"
@@ -106,4 +110,5 @@ lnsft () {
   command ln -s "$1" "$2"
 }
 
-eval "$(rbenv init -)"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
