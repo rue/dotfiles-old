@@ -109,16 +109,6 @@ au Syntax,BufRead,BufNewFile,BufEnter * 2match rue_margin80 /.\%>80v/
 "au Syntax,BufRead,BufNewFile,BufEnter * highlight rue_whitespaceError guibg=red guifg=white
 au Syntax,BufRead,BufNewFile,BufEnter * 3match Error /\s\+$\| \+\ze\t/  " Whitespace errors
 
-" Rainbow
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
-
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-
 " Remove trailing whitespace from selection
 "nmap <leader>c :%s/ *$//<CR>:w<CR>
 
@@ -227,5 +217,24 @@ let g:miniBufExplMapCTabSwitchBufs = 1      " <c-tab>, <c-s-tab> for buffers
 " Basic status plus fugitive.vim
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-set background=dark
-colorscheme zenburn
+
+" Rainbow is here because theme messes with it otherwise.
+let g:rbpt_colorpairs = [
+  \ [ '13', '#6c71c4'],
+  \ [ '5',  '#d33682'],
+  \ [ '1',  '#dc322f'],
+  \ [ '9',  '#cb4b16'],
+  \ [ '3',  '#b58900'],
+  \ [ '2',  '#859900'],
+  \ [ '6',  '#2aa198'],
+  \ [ '4',  '#268bd2'],
+  \ ]
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
