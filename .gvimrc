@@ -15,10 +15,6 @@ set guioptions-=R
 " Visual
 set guifont=Meslo\ LG\ S\ DZ:h18
 
-"colorscheme rubylang
-set background=dark
-colorscheme solarized
-
-set columns=190
+set columns=220
 set transparency=0
 
