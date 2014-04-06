@@ -51,7 +51,8 @@ map .C :s/^\/\///<CR>
 
 " Syntax
 set nocompatible      " We're running Vim, not Vi!
-syntax on             " Enable syntax highlighting
+syntax on
+
 set background=dark
 colorscheme solarized
 
@@ -78,8 +79,8 @@ Bundle 'mileszs/ack.vim.git'
 Bundle 'hail2u/vim-css3-syntax.git'
 Bundle 'groenewege/vim-less.git'
 Bundle 'tpope/vim-surround.git'
-" Clojure
 Bundle 'kien/rainbow_parentheses.vim.git'
+" Clojure
 Bundle 'guns/vim-clojure-static.git'
 Bundle 'tpope/vim-classpath.git'
 Bundle 'tpope/vim-fireplace.git'
@@ -89,7 +90,7 @@ Bundle 'matchit'
 
 
 " Vundle needs this to be after it.
-filetype plugin indent on     " Enable filetype-specific indenting and plugins
+filetype plugin indent on
 
 " Text editing could use autoformatting
 au FileType,Syntax,BufRead,BufNewFile,BufEnter *.md setlocal formatoptions+=a
