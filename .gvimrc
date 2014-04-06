@@ -13,7 +13,7 @@ set guioptions-=r
 set guioptions-=R
 
 " Visual
-set guifont="Meslo LG S DZ":h12
+set guifont=Meslo\ LG\ S\ DZ:h18
 
 "colorscheme rubylang
 set background=dark
