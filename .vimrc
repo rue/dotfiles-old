@@ -219,14 +219,14 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Rainbow is here because theme messes with it otherwise.
 let g:rbpt_colorpairs = [
-  \ [ '9',  '#cb4b16'],
   \ [ '2',  '#859900'],
   \ [ '4',  '#268bd2'],
-  \ [ '1',  '#dc322f'],
   \ [ '6',  '#2aa198'],
   \ [ '13', '#6c71c4'],
   \ [ '3',  '#b58900'],
+  \ [ '9',  '#cb4b16'],
   \ [ '5',  '#d33682'],
+  \ [ '1',  '#dc322f'],
   \ ]
 
 au VimEnter * RainbowParenthesesToggle
