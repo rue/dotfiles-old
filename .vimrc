@@ -217,17 +217,16 @@ let g:miniBufExplMapCTabSwitchBufs = 1      " <c-tab>, <c-s-tab> for buffers
 " Basic status plus fugitive.vim
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-
 " Rainbow is here because theme messes with it otherwise.
 let g:rbpt_colorpairs = [
-  \ [ '13', '#6c71c4'],
-  \ [ '5',  '#d33682'],
-  \ [ '1',  '#dc322f'],
   \ [ '9',  '#cb4b16'],
-  \ [ '3',  '#b58900'],
   \ [ '2',  '#859900'],
-  \ [ '6',  '#2aa198'],
   \ [ '4',  '#268bd2'],
+  \ [ '1',  '#dc322f'],
+  \ [ '6',  '#2aa198'],
+  \ [ '13', '#6c71c4'],
+  \ [ '3',  '#b58900'],
+  \ [ '5',  '#d33682'],
   \ ]
 
 au VimEnter * RainbowParenthesesToggle
