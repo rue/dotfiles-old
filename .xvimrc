@@ -1,0 +1,59 @@
+" XVim for Xcode
+
+" Encodings
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+
+
+" Key repeat timeout
+set timeoutlen=220
+
+
+" Warnings etc
+set noerrorbells
+
+
+" Line numbers
+set relativenumber
+
+
+" Search stuff
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set wrapscan
+
+
+" Formatting
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
+set smartindent
+
+filetype plugin indent on
+syntax on
+syntax enable
+
+
+" Key maps
+"
+" Dvorak
+" Normally, < ^ v > == h k j l
+" Here,     < ^ v > == h t n s, d remains delete
+noremap t k
+noremap k t
+
+noremap n j
+noremap j n
+
+noremap s l
+noremap l s
+
+" Simpler escaping now with 30% more saving!
+imap hh <esc>:w<CR>
+vmap hh <esc>:w<CR>
+
