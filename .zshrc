@@ -112,3 +112,7 @@ lnsft () {
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+source $(brew --prefix nvm)/nvm.sh
+
+export MONO_GAC_PREFIX="/usr/local"
