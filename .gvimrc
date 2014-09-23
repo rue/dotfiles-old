@@ -1,7 +1,7 @@
-" Clear autocommands
+" Clear autocommands and start fresh
 autocmd!
 
-" Standard
+" General stuff
 source ~/.vimrc
 
 " Minus some GUI elements

@@ -1,3 +1,6 @@
+" Clear autocommands and start fresh
+autocmd!
+
 " Visual bell
 set vb
 
@@ -6,7 +9,8 @@ set number
 set ruler
 set textwidth=120
 
-set timeoutlen=200
+" Key repeat timeout
+set timeoutlen=220
 
 " Ack!
 set grepprg=ack
@@ -20,7 +24,7 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Simpler escaping now with 30% more saving!
 imap hh <esc>:w<CR>
 vmap hh <esc>:w<CR>
-"Let's try this…
+" Let's try this…
 imap <leader><leader> <ESC>:w<CR>
 vmap <leader><leader> <ESC>:w<CR>
 nmap <leader><leader> :w<CR>
@@ -32,22 +36,18 @@ nnoremap <leader>= =
 vmap = ?
 nmap = ?
 
-"Screw Ex mode
+" Screw Ex mode
 nmap Q <nop>
 
 " Block commenting
-"
+
 " Ruby etc.
 vmap  u :s/^/#/<CR>
 vmap  U :s/^#//<CR>
-"
+
 " C etc.
 map .c :s/^/\/\//<CR>
 map .C :s/^\/\///<CR>
-
-" Strip whitespace
-"nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\v\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:w<CR>
-
 
 " Syntax
 set nocompatible      " We're running Vim, not Vi!
@@ -80,6 +80,7 @@ Bundle 'hail2u/vim-css3-syntax.git'
 Bundle 'groenewege/vim-less.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'kien/rainbow_parentheses.vim.git'
+Bundle 'nathanaelkane/vim-indent-guides.git'
 " Clojure
 Bundle 'guns/vim-clojure-static.git'
 Bundle 'tpope/vim-classpath.git'
@@ -88,8 +89,7 @@ Bundle 'tpope/vim-fireplace.git'
 " Vimscript bundles
 Bundle 'matchit'
 
-
-" Vundle needs this to be after it.
+" Vundle needs this to be delayed until after its setup.
 filetype plugin indent on
 
 " Text editing could use autoformatting
@@ -120,6 +120,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set wrapscan
 
 map ` :set hls!<CR>
 "noremap <esc> :nohls<cr>
@@ -156,7 +157,7 @@ nmap <c-w>s <c-w>l
 nmap <leader>p <c-w>p
 nmap <leader>n <c-w>n
 
-" Command-T
+" Ctrl-P
 nmap <leader>t :CtrlPMixed<CR>
 nmap <leader>T :CtrlP<CR>
 
@@ -164,9 +165,6 @@ let g:ctrlp_custom_ignore = '\v\.(git|hg|svn|js|html)$'
 
 " Ack
 nmap <leader>a :Ack<CR>
-
-" Tagbar
-nmap <leader>b :TagbarOpenAutoClose<CR>
 
 " Double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
@@ -196,28 +194,13 @@ function! InsertTabWrapper(direction)
 endfunction
 
 inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
-inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr> endfunction
-
-
-" Project
-let g:proj_window_width=20
-let g:proj_flags="imstTg"
-
-nmap <silent> <Leader>P <Plug>ToggleProject
-
-
-" MiniBufExplorer
-let g:miniBufExplModSelTarget = 1           " Avoid opening in non-modifiables
-let g:miniBufExplForceSyntaxEnable = 0      " force syntax highlighting
-
-" MBE navigation
-let g:miniBufExplMapWindowNavVim = 1        " <c-hjkl>
-let g:miniBufExplMapCTabSwitchBufs = 1      " <c-tab>, <c-s-tab> for buffers
+inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 
 " Basic status plus fugitive.vim
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" Rainbow is here because theme messes with it otherwise.
+" Rainbow is here, after the theme because theme
+" messes with it otherwise.
 let g:rbpt_colorpairs = [
   \ [ '2',  '#859900'],
   \ [ '4',  '#268bd2'],
@@ -237,3 +220,12 @@ au Syntax * RainbowParenthesesLoadChevrons
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+
+" Indent display, custom colors…
+"let g:indent_guides_auto_colors = 0
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+
+" Solarized default blue bg = "#002b36"
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=bg ctermbg=bg
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#002733 ctermbg=bg
