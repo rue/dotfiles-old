@@ -18,6 +18,10 @@ set noerrorbells
 set relativenumber
 
 
+" Required because of bug, otherwise cursor doesn’t show in playground
+set blinkcursor
+
+
 " Search stuff
 set hlsearch
 set incsearch
